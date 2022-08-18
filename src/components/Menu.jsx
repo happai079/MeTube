@@ -21,17 +21,29 @@ import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightne
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  flex: 1;
+  flex: 1.25;
   background-color: ${({ theme }) => theme.bgLighter};
   height: 100vh;
   color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
   top: 0;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 10px;
+  };
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-thumb {
+    overflow:visible;
+    border-radius: 4px;
+  };
+  &::-webkit-scrollbar-thumb {
+    background: rgb(255 255 255 / 20%); 
+  };
 `;
 
 const Wrapper = styled.div`
-  padding: 18px 26px;
+  padding: 18px 0 18px 26px;
 `;
 
 const Logo = styled.div`
@@ -39,7 +51,7 @@ const Logo = styled.div`
   align-items: center;
   gap: 5px;
   font-weight: bold;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 `;
 
 const Img = styled.img`
@@ -88,7 +100,7 @@ const Menu = ({darkMode, setDarkMode}) => {
   return (
     <Container>
       <Wrapper>
-        <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}> 
+        <Link to='/' style={{textDecoration: 'none', color: 'inherit', position: 'sticky', top: 0}}> 
           <Logo>
             <Img src={logoImg} />
             MeTube

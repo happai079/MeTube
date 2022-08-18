@@ -36,7 +36,7 @@ const Texts = styled.div``;
 const Title = styled.h1`
   font-size: 16px;
   font-weight: 500;
-  color: ${({theme}) => theme.text};
+  color: ${({ theme }) => theme.text};
 `;
 
 const ChannelName = styled.h2`
@@ -52,7 +52,7 @@ const Info = styled.div`
 
 const Card = ({type}) => {
   return (
-    <Link to='/video/test' style={{textDecoration: 'none', color: 'inherit'}}>
+    <Link to='/video/test' style={{textDecoration: 'none'}}>
       <Container type={type}>
         <Image type={type} />
         <Details type={type}>

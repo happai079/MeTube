@@ -19,10 +19,21 @@ const Main = styled.div`
 
 const Wrapper = styled.div`
 	padding: 22px 30px;
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+	&::-webkit-scrollbar,
+	&::-webkit-scrollbar-thumb {
+		overflow: visible;
+		border-radius: 4px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: rgb(255 255 255 / 20%);
+	}
 `;
 
 function App() {
-	const [darkMode, setDarkMode] = useState(false);
+	const [darkMode, setDarkMode] = useState(true);
 
 	return (
 		<ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
