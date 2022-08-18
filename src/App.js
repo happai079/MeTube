@@ -9,7 +9,6 @@ import Video from './pages/Video';
 
 const Container = styled.div`
 	display: flex;
-	background-color: #181818;
 `;
 
 const Main = styled.div`
@@ -18,7 +17,7 @@ const Main = styled.div`
 `;
 
 const Wrapper = styled.div`
-	padding: 22px 96px;
+	padding: 22px 30px;
 `;
 
 function App() {

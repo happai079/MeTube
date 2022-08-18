@@ -18,18 +18,20 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   flex: 1;
-  background-color: ${({theme}) => theme.bg};
-  color: ${({theme}) => theme.text};
+  background-color: ${({ theme }) => theme.bgLighter};
+  height: 100vh;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
   position: sticky;
   top: 0;
 `;
 
 const Wrapper = styled.div`
-  padding: 10px 26px;
+  padding: 18px 26px;
 `;
 
 const Logo = styled.div`
@@ -49,25 +51,26 @@ const Item = styled.div`
   align-items: center;
   gap: 20px;
   cursor: pointer;
-  padding: 7.5px 0;
+  padding: 7.5px 0px;
+  &:hover {
+    background-color: ${({ theme }) => theme.soft};
+  }
 `;
 
 const Hr = styled.hr`
-  margin: 15px 0;
-  border: 0.5px solid ${({theme}) => theme.soft};
+  margin: 15px 0px;
+  border: 0.5px solid ${({ theme }) => theme.soft};
 `;
 
-const Login = styled.div`
-`;
-
+const Login = styled.div``;
 const Button = styled.button`
   padding: 5px 15px;
-  margin-top: 10px;
   background-color: transparent;
   border: 1px solid #3ea6ff;
-  border-radius: 3px;
   color: #3ea6ff;
+  border-radius: 3px;
   font-weight: 500;
+  margin-top: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -85,12 +88,14 @@ const Menu = ({darkMode, setDarkMode}) => {
   return (
     <Container>
       <Wrapper>
-        <Logo>
-          <Img src={logoImg} />
-          MeTube
-        </Logo>
+        <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}> 
+          <Logo>
+            <Img src={logoImg} />
+            MeTube
+          </Logo>
+        </Link>
         <Item>
-          <HomeIcon/>
+          <HomeIcon />
           Home
         </Item>
         <Item>
@@ -101,7 +106,7 @@ const Menu = ({darkMode, setDarkMode}) => {
           <SubscriptionsOutlinedIcon />
           Subscriptions
         </Item>
-        <Hr/>
+        <Hr />
         <Item>
           <VideoLibraryOutlinedIcon />
           Library
@@ -110,13 +115,16 @@ const Menu = ({darkMode, setDarkMode}) => {
           <HistoryOutlinedIcon />
           History
         </Item>
-        <Hr/>
+        <Hr />
         <Login>
           Sign in to like videos, comment, and subscribe.
-          <Button><AccountCircleOutlinedIcon />SIGN IN</Button>
+            <Button>
+              <AccountCircleOutlinedIcon />
+              SIGN IN
+            </Button>
         </Login>
-        <Hr/>
-        <Title>BEST OF METUBE</Title>
+        <Hr />
+        <Title>BEST OF LAMATUBE</Title>
         <Item>
           <LibraryMusicOutlinedIcon />
           Music
@@ -141,7 +149,7 @@ const Menu = ({darkMode, setDarkMode}) => {
           <LiveTvOutlinedIcon />
           Live
         </Item>
-        <Hr/>
+        <Hr />
         <Item>
           <SettingsOutlinedIcon />
           Settings
@@ -156,7 +164,7 @@ const Menu = ({darkMode, setDarkMode}) => {
         </Item>
         <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
-            {darkMode ? 'Light Mode' : 'Dark Mode'}
+          {darkMode ? "Light" : "Dark"} Mode
         </Item>
       </Wrapper>
     </Container>

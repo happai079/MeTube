@@ -43,11 +43,10 @@ const Input = styled.input`
 
 const Button = styled.button`
   padding: 5px 15px;
-  margin-top: 10px;
   background-color: transparent;
   border: 1px solid #3ea6ff;
-  border-radius: 3px;
   color: #3ea6ff;
+  border-radius: 3px;
   font-weight: 500;
   cursor: pointer;
   display: flex;
@@ -55,16 +54,18 @@ const Button = styled.button`
   gap: 5px;
 `;
 
-
 const Navbar = () => {
   return (
     <Container>
       <Wrapper>
         <Search>
-          <Input placeholder='Search' />
+          <Input placeholder="Search" />
           <SearchOutlinedIcon />
         </Search>
-      <Button><AccountCircleOutlinedIcon />SIGN IN</Button>
+          <Button>
+            <AccountCircleOutlinedIcon />
+            SIGN IN
+          </Button>
       </Wrapper>
     </Container>
   );
