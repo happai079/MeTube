@@ -19,7 +19,7 @@ const Image = styled.img`
 const Details = styled.div`
   display: flex;
   margin-top: ${(props) => props.type !== 'sm' && '16px'};
-  margin-left: ${(props) => props.type == 'sm' && '8px'};
+  margin-left: ${(props) => props.type === 'sm' && '8px'};
   gap: 12px;
   flex: 1;
 `;
