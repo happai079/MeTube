@@ -25,7 +25,7 @@ export const signin = async (req, res, next) => {
 		if (!user) return next(createError(404, 'User not found!'));
 
 		const isCorrect = await bcrypt.compare(req.body.password, user.password);
-		if (!isCorrect) return next(createError(400, 'Wraon Credentials!'));
+		if (!isCorrect) return next(createError(400, 'Wrong Credentials!'));
 
 		// 로그인 성공시 JWT 생성 및 cookie에 전달
 		const token = jwt.sign({ id: user._id }, process.env.JWT);
