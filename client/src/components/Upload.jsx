@@ -95,7 +95,6 @@ const Upload = ({setOpen}) => {
     e.preventDefault();
     const res = await axios.post('/api/videos', {...inputs, tags});
     setOpen(false);
-    console.log(res.status)
     res.status === 200 && navigate(`/video/${res.data._id}`); 
   };
 
