@@ -71,7 +71,7 @@ const Label = styled.label`
   font-size: 14px;
 `;
 
-const Upload = ({setOpen}) => {
+const Upload = ({setUploadOpen}) => {
   const [image, setImage] = useState(undefined);
   const [video, setVideo] = useState(undefined);
   const [imagePerc, setImagePerc] = useState(0);
@@ -94,7 +94,7 @@ const Upload = ({setOpen}) => {
   const handleUpload = async (e) => {
     e.preventDefault();
     const res = await axios.post('/api/videos', {...inputs, tags});
-    setOpen(false);
+    setUploadOpen(false);
     res.status === 200 && navigate(`/video/${res.data._id}`); 
   };
 
@@ -138,7 +138,7 @@ const Upload = ({setOpen}) => {
   return (
     <Container>
       <Wrapper>
-        <Close onClick={() => setOpen(false)}>X</Close>
+        <Close onClick={() => setUploadOpen(false)}>X</Close>
         <Title>Upload a New Video</Title>
         <Label>Video:</Label>
         {videoPerc > 0 ? (

@@ -7,6 +7,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import VideoCallOutlinedIcon from "@mui/icons-material/VideoCallOutlined";
 import Upload from './Upload';
+import Profile from './Profile';
 
 const Container = styled.div`
   position: sticky;
@@ -67,6 +68,12 @@ const User = styled.div`
   color: ${({ theme }) => theme.text};
 `;
 
+const UserInfo = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
 const Avatar = styled.img`
   width: 32px;
   height: 32px;
@@ -75,7 +82,8 @@ const Avatar = styled.img`
 `;
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
+  const [uploadOpen, setUploadOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [query, setQuery] = useState("");
   const {currentUser} = useSelector(state => state.user);
 
@@ -86,14 +94,27 @@ const Navbar = () => {
       <Container>
         <Wrapper>
           <Search>
-            <Input placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
-            <SearchOutlinedIcon style={{cursor: 'pointer'}} onClick={() => navigate(`/search?q=${query}`)} />
+            <Input 
+              placeholder="Search" 
+              onChange={(e) => setQuery(e.target.value)} 
+            />
+            <SearchOutlinedIcon 
+              style={{cursor: 'pointer'}} 
+              onClick={() => navigate(`/search?q=${query}`)} 
+            />
           </Search>
             {currentUser ? (
               <User>
-                <VideoCallOutlinedIcon style={{cursor: 'pointer'}} onClick={() => setOpen(true)}/>
-                <Avatar src={currentUser.img}/>
-                {currentUser.name}
+                <VideoCallOutlinedIcon 
+                  style={{cursor: 'pointer'}} 
+                  onClick={() => setUploadOpen(true)}
+                />
+                <UserInfo onClick={() => setProfileOpen(true)}>
+                  <Avatar 
+                    src={currentUser.img} 
+                  />
+                  {currentUser.name}
+                </UserInfo>
               </User>
             ) : (
               <Link to="signin" style={{textDecoration:"none"}}>  
@@ -105,7 +126,8 @@ const Navbar = () => {
             )}
         </Wrapper>
       </Container>
-      {open && <Upload setOpen={setOpen}/>}
+      {uploadOpen && <Upload setUploadOpen={setUploadOpen}/>}
+      {profileOpen && <Profile setProfileOpen={setProfileOpen}/>}
     </>
   );
 };
