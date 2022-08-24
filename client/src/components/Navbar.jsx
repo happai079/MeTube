@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
@@ -76,15 +76,18 @@ const Avatar = styled.img`
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [query, setQuery] = useState("");
   const {currentUser} = useSelector(state => state.user);
+
+  const navigate = useNavigate();
   
   return (
     <>
       <Container>
         <Wrapper>
           <Search>
-            <Input placeholder="Search" />
-            <SearchOutlinedIcon style={{cursor: 'pointer'}} />
+            <Input placeholder="Search" onChange={(e) => setQuery(e.target.value)} />
+            <SearchOutlinedIcon style={{cursor: 'pointer'}} onClick={() => navigate(`/search?q=${query}`)} />
           </Search>
             {currentUser ? (
               <User>
