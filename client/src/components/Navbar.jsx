@@ -36,7 +36,8 @@ const Search = styled.div`
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 3px;
-`;
+  color: ${({ theme }) => theme.text};
+  `;
 
 const Input = styled.input`
   border: none;
@@ -73,7 +74,7 @@ const Avatar = styled.img`
   background-color: #999;
 `;
 
-const Navbar = ({darkMode}) => {
+const Navbar = () => {
   const [open, setOpen] = useState(false);
   const {currentUser} = useSelector(state => state.user);
   
@@ -83,7 +84,7 @@ const Navbar = ({darkMode}) => {
         <Wrapper>
           <Search>
             <Input placeholder="Search" />
-            <SearchOutlinedIcon style={{color: darkMode ? 'white' : 'black'}} />
+            <SearchOutlinedIcon style={{cursor: 'pointer'}} />
           </Search>
             {currentUser ? (
               <User>

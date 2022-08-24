@@ -41,7 +41,7 @@ function App() {
 				<BrowserRouter>
 					<Menu darkMode={darkMode} setDarkMode={setDarkMode} />
 					<Main>
-						<Navbar darkMode={darkMode} />
+						<Navbar />
 						<Wrapper>
 							<Routes>
 								<Route path="/">
